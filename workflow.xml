@@ -1,0 +1,13 @@
+<tool id='pnnl_ocean_parcels_demo' name='pnnl_ocean_parcels_demo'>
+  <command interpreter='parsl-nb'>main.ipynb</command>
+  <inputs>
+    <param name='casename' label='Case Name' type='text' value='OceanParcels' width='30%'>
+    </param>
+    <param name='run_files' type='data' multiple='True' label='OceanParcels scripts (.py)' format='py' width='100%'>
+    </param>
+  </inputs>
+  <outputs>
+    <data name='out_dir' format='txt' label='${casename}-out'>
+    </data>
+  </outputs>
+</tool>
