@@ -22,7 +22,7 @@ However, it's harder for Mac/Win users to run Singularity
 containers - by providing Docker containers, it's easier
 to ensure others can cross-check your work -> transparency.
 
-## Converting from Docker to Singularity
+## Installing Docker and Singularity
 
 I installed Docker and Singularity and converted the
 OceanParcels Docker container to Singularity in the
@@ -39,17 +39,17 @@ git clone https://github.com/parallelworks/ocean-parcels
 Then you can run the Docker and Singularity install
 steps in the build_worker.sh script. The script is based on the [Docker installation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and the [Singularity installation](https://sylabs.io/guides/3.0/user-guide/installation.html) instructions.
 
+## Converting OceanParcels to Singularity
 
+First, pull the Docker container:
+```bash
+sudo docker pull stefanfgary/ocean_parcels
+```
 
-wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
-# Verify /usr/local/go does not exist and if it does, rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+Second, pull the Docker container into Singularity:
+```bash
+singularity pull docker://stefanfgary/ocean_parcels
+```
 
-# System-wide installation -> won't let me do this?
-echo 'export GOPATH=${HOME}/go' >> /etc/profile
-echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> /etc/profile
+I moved the container to /usr/local/
 
-# Installation for current session so I can continue to install Singularity.
-echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
-echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
-source ~/.bashrc
