@@ -112,6 +112,7 @@ RUN parcels_get_examples parcels_examples
 # downloaded during the container build
 # process and saved in default locations:
 RUN python test_ocean_parcels.py
+RUN rm /app/*.png /app/movie.gif
 
 #------------------------------------
 # Optional container startup command
