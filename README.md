@@ -18,11 +18,11 @@ Key take home points:
 
 In general, I like to make images as Docker containers
 because they can be easily converted to Singularity.
-However, it's harder for Mac/Win users to run Singularity
-containers - by providing Docker containers, it's easier
-to ensure others can cross-check your work -> transparency.
+It's harder for Mac/Win users to run Singularity
+containers; by providing Docker containers, it's easier
+to share with others.
 
-## Installing Docker and Singularity
+## Installing Docker and Singularity on worker image
 
 I installed Docker and Singularity and converted the
 OceanParcels Docker container to Singularity in the
@@ -39,9 +39,27 @@ git clone https://github.com/parallelworks/ocean-parcels
 Then you can run the Docker and Singularity install
 steps in the build_worker.sh script. The script is based on the [Docker installation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and the [Singularity installation](https://sylabs.io/guides/3.0/user-guide/installation.html) instructions.
 
+The install script does *not* include the additional
+steps of pulling the Docker container image to the
+worker you're building and converting that container image
+to Singularity.  Those steps were done manually and
+are documented below.
+
+## Building the Docker container image
+
+To create the container, while in this directory with
+the included Dockerfile and test_ocean_parcels.py,
+```bash
+sudo docker build . -t stefanfgary/ocean_parcels
+sudo docker push stefanfgary/ocean_parcels
+```
+(Tag it with your own DockerHub ID for your own records.)
+
 ## Converting OceanParcels to Singularity
 
-First, pull the Docker container:
+First, pull the Docker container if it wasn't already
+built/pulled on this system:  (I built the container
+on a local laptop and then pulled it to a cloud worker)
 ```bash
 sudo docker pull stefanfgary/ocean_parcels
 ```
@@ -51,5 +69,24 @@ Second, pull the Docker container into Singularity:
 singularity pull docker://stefanfgary/ocean_parcels
 ```
 
-I moved the container to /usr/local/
+I moved the Singularity container image to /usr/local/
 
+## Worker-installed (preloaded) Parsl-PW Conda environment
+
+The `parsl-pw` Conda environment is the default environment
+for executing PW platform parallelization via Parsl.  While
+the platform can copy this environment to a given worker,
+preloading this Conda environment will speed up worker spin-up
+time since copying and unpacking the Conda environment takes
+a long time.
+
+First, copy the /pw/.packs/miniconda3.tgz file from your account
+on PW to the cloud worker.  The fastest way to do this is to
+sftp directly to the external IP address of the worker which
+can be looked up on the GCE console.
+
+Then untar the file and ensure the directory is named `.miniconda3`.
+
+Update the conda paths:
+
+Ensure that the platform knows where Conda is installed.
