@@ -1,4 +1,4 @@
-<tool id='pnnl_ocean_parcels_demo' name='pnnl_ocean_parcels_demo'>
+<tool id='geomar_ocean_parcels_demo' name='geomar_ocean_parcels_demo'>
   <command interpreter='parsl-nb'>main.ipynb</command>
   <inputs>
     <param name='casename' label='Case Name' type='text' value='OceanParcels' width='30%'>
