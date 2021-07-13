@@ -19,6 +19,7 @@ FROM ubuntu:latest
 #------------------------------------
 
 WORKDIR /app
+ADD ./test_ocean_parcels.py /app/test_ocean_parcels.py
 
 #------------------------------------
 # Configure time zone so apt-get update
@@ -104,6 +105,14 @@ RUN parcels_get_examples parcels_examples
 # import os
 # import cartopy
 # cartopy.config['data_dir'] = os.getenv('CARTOPY_DIR', cartopy.config.get('data_dir'))
+
+# Or, a simple alternative is to just call
+# a simple OceanParcels script that will
+# require plotting so the key files are
+# downloaded during the container build
+# process and saved in default locations:
+RUN python test_ocean_parcels.py
+RUN rm /app/*.png /app/movie.gif
 
 #------------------------------------
 # Optional container startup command

@@ -1,7 +1,9 @@
-<tool id='pnnl_ocean_parcels_demo' name='pnnl_ocean_parcels_demo'>
+<tool id='geomar_ocean_parcels_demo' name='geomar_ocean_parcels_demo'>
   <command interpreter='parsl-nb'>main.ipynb</command>
   <inputs>
     <param name='casename' label='Case Name' type='text' value='OceanParcels' width='30%'>
+    </param>
+    <param name='container_type' label='Container Type' type='boolean' truevalue='Docker' falsevalue='Singularity' width='30%'>
     </param>
     <param name='run_files' type='data' multiple='True' label='OceanParcels scripts (.py)' format='py' width='100%'>
     </param>
