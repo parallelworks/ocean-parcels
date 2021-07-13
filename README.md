@@ -1,29 +1,23 @@
 # ocean-parcels
 Dockerfile and other documentation for ocean-parcels workflow.  Includes converting to Singularity.
 
-# Container
+# Workflow installation
 
-## Docker (and Singularity)
+After pulling this repository from github.com/parallelworks/ocean-parcles,
+make symbolic links to main.ipynb and workflow.xml into the empty PW workflow
+directory.  Add OceanParcels Python scripts (e.g. copies of test_ocean_parcels.py
+or more sophisticated scripts) to the empty workflow directory.
 
-The Dockerfile is based on the Dockerfile at
-github.com/stefangary/socks with some minor
-experimentation.  In particular, it was essential
-to get the right Python/Miniconda version.
+Other dependencies:
+1. paths.py
+2. parcels_examples
+3. utils
 
-Docker and Singularity differ in some important ways,
-[Turner-Trauring (2021)](https://pythonspeed.com/articles/containers-filesystem-data-processing/) is an **excellent** summary.
-Key take home points:
-1. **Docker** containers are *isolated* so special processes are necessary for the container to see host system files (e.g. Docker Volumes, mounting).
-2. **Singularty** containers are *permeable* (you keep the same UID, automatic access $HOME, $PWD, and /tmp on host file system).
+Run the workflow from the `Compute` tab on the PW platform.
 
-In general, I like to make images as Docker containers
-because they can be easily converted to Singularity.
-It's harder for Mac/Win users to run Singularity
-containers; by providing Docker containers, it's easier
-to share with others.
+# Worker image
 
-## Installing Docker and Singularity on worker image
-
+I started with a default Ubuntu20 Mimimal image and
 I installed Docker and Singularity and converted the
 OceanParcels Docker container to Singularity in the
 same session on a worker image. The worker setup
@@ -44,6 +38,27 @@ steps of pulling the Docker container image to the
 worker you're building and converting that container image
 to Singularity.  Those steps were done manually and
 are documented below.
+
+# Container
+
+## Docker (and Singularity)
+
+The Dockerfile is based on the Dockerfile at
+github.com/stefangary/socks with some minor
+experimentation.  In particular, it was essential
+to get the right Python/Miniconda version.
+
+Docker and Singularity differ in some important ways,
+[Turner-Trauring (2021)](https://pythonspeed.com/articles/containers-filesystem-data-processing/) is an **excellent** summary.
+Key take home points:
+1. **Docker** containers are *isolated* so special processes are necessary for the container to see host system files (e.g. Docker Volumes, mounting).
+2. **Singularty** containers are *permeable* (you keep the same UID, automatic access $HOME, $PWD, and /tmp on host file system).
+
+In general, I like to make images as Docker containers
+because they can be easily converted to Singularity.
+It's harder for Mac/Win users to run Singularity
+containers; by providing Docker containers, it's easier
+to share with others.
 
 ## Building the Docker container image
 
@@ -69,7 +84,26 @@ Second, pull the Docker container into Singularity:
 singularity pull docker://stefanfgary/ocean_parcels
 ```
 
-I moved the Singularity container image to /usr/local/
+This Singularity operation placed the container .sif
+in the current directory; I moved the Singularity
+container image to /usr/local/ocean_parcels_latest.sif
+and gave all users permissions.
+
+**Note:** While building the Docker container, it is
+essential to run test_ocean_parcels.py because this
+will download a file needed by cartopy to make ploats.
+This is does not matter for the Docker container
+(because it is fully isolated from the underlying system)
+but this file must be preinstalled for the Singularity
+container to run because the default location for it
+is normally in a space that the Singularity user cannot
+access.
+
+**To do:** The Singularity `.sif` file on the worker is
+compressed so every time the container is run, it takes
+about a minute to decompress the file.  I have experimented
+with trying to run from a `--sandbox` version of the `.sif`
+but I have run into permissions issues.
 
 ## Worker-installed (preloaded) Parsl-PW Conda environment
 
@@ -85,8 +119,7 @@ on PW to the cloud worker.  The fastest way to do this is to
 sftp directly to the external IP address of the worker which
 can be looked up on the GCE console.
 
-Then untar the file and ensure the directory is named `.miniconda3`.
-
-Update the conda paths:
-
-Ensure that the platform knows where Conda is installed.
+Then untar the file to /var/lib/pworks/.miniconda3. Update the
+conda paths from /pw/.miniconda3 to /var/lib/pworks/.miniconda3
+**Do not use /tmp/.miniconda3 to preload the Conda env files because
+/tmp is not persistent on cloud worker images.**

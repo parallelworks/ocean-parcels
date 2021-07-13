@@ -13,4 +13,4 @@
 # to be staged.  The script to be run is
 # given as an input argument to this wrapper.
 #==============================================
-singularity run --no-home --fakeroot --bind ${PWD}:/scratch --pwd /scratch /usr/local/ocean_parcels_latest.sif $*
+singularity exec --no-home --fakeroot --bind ${PWD}:/scratch --pwd /scratch /usr/local/ocean_parcels_latest.sif $*
