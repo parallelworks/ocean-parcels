@@ -4,9 +4,11 @@ Dockerfile and other documentation for ocean-parcels workflow.  Includes convert
 # Workflow installation
 
 After pulling this repository from github.com/parallelworks/ocean-parcles,
-make symbolic links to main.ipynb and workflow.xml into the empty PW workflow
-directory.  Add OceanParcels Python scripts (e.g. copies of test_ocean_parcels.py
-or more sophisticated scripts) to the empty workflow directory.
+symlink or copy main.ipynb and workflow.xml into the empty PW workflow
+directory.  (Note, if you make symlinks, this will prevent sharing the
+workflow via the PW market place.) Add OceanParcels Python scripts
+(e.g. copies of test_ocean_parcels.py or more sophisticated scripts)
+to the empty workflow directory.
 
 Other dependencies:
 1. paths.py
