@@ -3,6 +3,8 @@ Dockerfile and other documentation for ocean-parcels workflow.  Includes convert
 
 # Workflow installation
 
+## Normal (stand-alone) installation
+
 After pulling this repository from github.com/parallelworks/ocean-parcles,
 symlink or copy main.ipynb and workflow.xml into the empty PW workflow
 directory.  (Note, if you make symlinks, this will prevent sharing the
@@ -16,6 +18,29 @@ Other dependencies:
 3. utils
 
 Run the workflow from the `Compute` tab on the PW platform.
+
+## Install with workflow_json
+
+So that this workflow can be generalized for use with both
+active and passive pools, the workflow_json wrapper is needed.
+In this case, `main.ipynb` was converted to `main.py` (example
+provided here, but if you change `main.ipynb`, you'll need to update
+`main.py` as well with:
+```bash
+jupyter nbconvert --to script main.ipynb
+```
+
+For the workflow_json case, simply leave `main.py` in this app's
+directory since workflow_json jobs are initialized and run from
+the main.py in `workflow_json`.  Symlink `workflow.json` and
+`workflow.xml` from this app's directory into the top level PW
+workflow directory.
+
+TODO: There are three major issues with getting this to run:
+1. workflow_json only works with one worker
+2. need to load a local or slurm config to work on NOAA platform
+3. need to set the prefix of the Path objects to prefix as determined in TODO.md
+4. pwargs are not present, need to copy get command line in TODO.md
 
 # Worker image
 

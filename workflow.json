@@ -1,0 +1,31 @@
+{
+    "workflow_host": "{{workflow_host}}",
+    "command": "bash {{remote_dir}}/ocean-parcels/./run.sh python {{remote_dir}}/ocean-parcels/main.py",
+    "inputs": {
+        "sh_script": {
+            "type": "file",
+            "origin": "./ocean-parcels/run.sh",
+            "destination": "{{remote_dir}}/ocean-parcels/run.sh"
+        },
+        "py_script": {
+            "type": "file",
+            "origin": "./ocean-parcels/main.py",
+            "destination": "{{remote_dir}}/ocean-parcels/main.py"
+        },
+        "container_type": {
+            "type": "text",
+            "value": "{{container_type}}"
+        },
+        "run_files": {
+            "type": "text",
+            "value": "{{run_files}}"
+        }
+    },
+    "outputs": {
+        "out_dir": {
+            "type": "file",
+            "destination": "{{casename}}",
+            "origin": "{{remote_dir}}/{{casename}}"
+        }
+    }
+}
