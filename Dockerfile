@@ -62,10 +62,14 @@ RUN apt-get update && apt-get install -y \
 
 # Python 3.8 -> Works!
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh; \
-    bash Miniconda3-latest-Linux-x86_64.sh -b; \
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p /app/miniconda3; \
     rm Miniconda3-latest-Linux-x86_64.sh
 
-ENV PATH=/root/miniconda3/bin:${PATH}
+ENV PATH=/app/miniconda3/bin:${PATH}
+
+# Make all RUN commands use a specific environment:
+# (See https://pythonspeed.com/articles/activate-conda-dockerfile/ )
+SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 
 RUN conda update -y conda; \
     conda install -y -c conda-forge parcels \
@@ -77,7 +81,6 @@ RUN conda update -y conda; \
 # This is done as a separate layer
 # that can be removed later for
 # for faster container transfer.
-# Currently, this is layer a43bef9bff0b
 #------------------------------------
 
 RUN parcels_get_examples parcels_examples
@@ -113,6 +116,12 @@ RUN parcels_get_examples parcels_examples
 # process and saved in default locations:
 RUN python test_ocean_parcels.py
 RUN rm /app/*.png /app/movie.gif
+
+# The code to run when container is started,
+# You can add additional parameters on
+# command line, e.g. https://stackoverflow.com/questions/53543881/docker-run-pass-arguments-to-entrypoint
+COPY ./container_entrypoint.sh /app/container_entrypoint.sh
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base", "/app/container_entrypoint.sh"]
 
 #------------------------------------
 # Optional container startup command
