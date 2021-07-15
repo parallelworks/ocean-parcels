@@ -120,7 +120,8 @@ RUN rm /app/*.png /app/movie.gif
 # The code to run when container is started,
 # You can add additional parameters on
 # command line, e.g. https://stackoverflow.com/questions/53543881/docker-run-pass-arguments-to-entrypoint
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base", "python"]
+COPY ./container_entrypoint.sh /app/container_entrypoint.sh
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base", "/app/container_entrypoint.sh"]
 
 #------------------------------------
 # Optional container startup command
