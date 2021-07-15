@@ -1,0 +1,378 @@
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_2.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_2.gif
+        mkdir -p $outdir
+        ls > $outdir/$outfile #mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_1.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_1.gif
+        mkdir -p $outdir
+        ls > $outdir/$outfile #mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_51de1249-7a25-4744-a97c-a40d45748975.so
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_97be3203-1f05-49de-b199-d07b3c5dae04.so
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/d2ca39c6234723cca128b8908d55db7c_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/2f592011197e6abdbe2e1fc52880fb5d_0.so
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_1.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_1.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_2.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_2.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_a91100e6-dd5e-4c49-8bc4-3971427cbf03.so
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_4324733f-67dd-4f47-8988-f7fe86c419cd.so
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/a4123290d859e9f060bd0400ef95362c_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/bb0e715dc253474a2b51253c1ff6dc0e_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+mv: cannot stat 'movie.gif': No such file or directory
+mv: cannot stat 'movie.gif': No such file or directory
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_2.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_2.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_1.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_1.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_951882c9-a356-44ae-bb15-4cae617f11cc.so
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_3ab93a63-e4c9-4731-ada8-204c365cdeec.so
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/dfc1f4e36d67f176b7541fe712b2ab58_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/bfac0321069993b0c692465e72fe87c2_0.so
+INFO: Visualisation is not possible. Matplotlib not found.
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+mv: cannot stat 'movie.gif': No such file or directory
+mv: cannot stat 'movie.gif': No such file or directory
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_2.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_2.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_1.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_1.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_c7335d60-5877-4e26-9750-93cec9f7ed9f.so
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_e76024bb-4e9e-46f5-8bfd-3981ff3dca6b.so
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/1b73585ef3061923efb600356556f36d_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/ec9c90388edb4ec136381fe2e5b3c729_0.so
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+mv: cannot stat 'movie.gif': No such file or directory
+mv: cannot stat 'movie.gif': No such file or directory
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_1.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_1.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+--> executable follows <--
+
+        /bin/bash wrap_singularity_oceanparcels_slurm.sh test_ocean_parcels_2.py
+        outdir=test-outputs
+        outfile=test_ocean_parcels_2.gif
+        mkdir -p $outdir
+        mv movie.gif $outdir/$outfile
+    
+--> end executable <--
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_9709bb4c-6d4d-499d-97e6-844a3e5a14f7.so
+INFO: Compiled ParcelsRandom ==> /tmp/parcels-40642/libparcels_random_66cd21bf-6c41-454f-9a0e-317b12387fa2.so
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+WARNING: Casting lon data to np.float32
+WARNING: Casting lat data to np.float32
+WARNING: Casting depth data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/cd50611e62e1e72255a440ff6ab8a14e_0.so
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Compiled JITParticleAdvectionRK4 ==> /tmp/parcels-40642/7fcec19d960846f2995943676b993407_0.so
+INFO: Visualisation is not possible. Matplotlib not found.
+WARNING: Casting field data to np.float32
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+INFO: Visualisation is not possible. Matplotlib not found.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+convert-im6.q16: unable to open image `*.png': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no images defined `movie.gif' @ error/convert.c/ConvertImageCommand/3258.
+mv: cannot stat 'movie.gif': No such file or directory
+mv: cannot stat 'movie.gif': No such file or directory

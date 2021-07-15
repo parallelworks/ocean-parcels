@@ -12,8 +12,9 @@ to the empty workflow directory.
 
 Other dependencies:
 1. paths.py
-2. parcels_examples
+2. parcels_examples (obtained via command line, e.g.: `/contrib/Stefan.Gary/miniconda3/envs/oceanparcels/bin/parcels_get_examples parcels_examples`)
 3. utils
+
 
 Run the workflow from the `Compute` tab on the PW platform.
 
@@ -105,7 +106,17 @@ access.
 compressed so every time the container is run, it takes
 about a minute to decompress the file.  I have experimented
 with trying to run from a `--sandbox` version of the `.sif`
-but I have run into permissions issues.
+but I have run into permissions issues.  Actually, I don't
+think it has anything to do with the container itself -
+with some experimentation, it seems that the temporary
+sandbox is created with the --fakeroot option.  This
+has been verified - the container starts up much faster
+now that miniconda is not installed in /root so there
+is no need to run as --fakeroot.
+
+**To do:** The Singularity container does not appear
+to use the Dockerfile's ENTRYPOINT with `exec`.  However,
+using `singularity run` breaks on gclusters.
 
 ## Worker-installed (preloaded) Parsl-PW Conda environment
 
