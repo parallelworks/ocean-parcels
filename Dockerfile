@@ -120,8 +120,19 @@ RUN rm /app/*.png /app/movie.gif
 # The code to run when container is started,
 # You can add additional parameters on
 # command line, e.g. https://stackoverflow.com/questions/53543881/docker-run-pass-arguments-to-entrypoint
+# Add the oceanparcels conda environment to match
+# that on the cluster conda install.  ##DOES NOT ADDRESS ROOT ISSUE!##
 COPY ./container_entrypoint.sh /app/container_entrypoint.sh
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base", "/app/container_entrypoint.sh"]
+RUN conda create --name oceanparcels --clone base
+SHELL ["conda", "run", "-n", "oceanparcels", "/bin/bash", "-c"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "oceanparcels", "/app/container_entrypoint.sh"]
+
+# Singularity cannot use the entrypoint because it
+# needs to create a tmp file in /app/miniconda3?
+# Simply making it writable does not work b/c
+# Singularity runs as read-only filesystem.
+#RUN chmod a+w /app; \
+#    chmod a+w /app/miniconda3;
 
 #------------------------------------
 # Optional container startup command
