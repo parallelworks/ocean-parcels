@@ -1,7 +1,44 @@
 # ocean-parcels
-Dockerfile and other documentation for ocean-parcels workflow.  Includes converting to Singularity.
 
-# Workflow installation
+Dockerfile and other documentation for ocean-parcels workflow.  Includes converting to Singularity.  This code is a Jupyter notebook/Parsl workflow to run OceanParcels via Singularity and Docker containers.
+
+Currently, this workflow either launches from the PW platform (go.parallel.works) from a GUI form OR it launches from JupyterHub from the `main_slurm_no_form.ipynb` notebook (noaa.parallel.works).  A workflow that is launched from a\
+ GUI form for noaa.parallel.works is under development (template in `workflow.xml`).
+
+# Resource configuration
+
+The default version of this workflow does not require
+substantial resources.  Workers with 2 CPU and 8GB RAM
+are sufficient.  If you choose to run on bigger model
+output fields and/or with more particles, then you'll
+want to adjust resources accordingly.
+
+# Dependencies and quick start
+
+The first 5 cells in this notebook are taken directly from
+the [Ocean Parcels tutorial](https://oceanparcels.org/) and
+are executed locally (i.e. on the head node of the cluster).
+The local execution of OceanParcels requires the following
+(recommend installing in separate steps):
+```bash
+conda install -y -c conda-forge parcels
+conda install -y -c conda-forge ffmpeg
+conda install -y -c conda-forge cartopy
+
+The last 3 cells in the notebook are the workflow proper;
+they setup and then launch several workers, each worker
+runs one of the `test_ocean_parcels_X.py` scripts in a
+Singularity container (public container at https://hub.docker.com/r/stefanfgary/ocean_parcels which
+can be converted to Singularity via `singularity pull docker://stefanfgary/ocean_parcels`).  The path to the
+container is set in `wrap_singularity_oceanparcels_slurm.sh`
+and it's most easily launched via that script.  The workflow
+is parallelized with Parsl, please ensure it is present in
+your local environment:
+```bash
+conda install -y -c conda-forge parsl
+```
+
+# Workflow installation for use with PW GUI form
 
 After pulling this repository from github.com/parallelworks/ocean-parcles,
 symlink or copy main.ipynb and workflow.xml into the empty PW workflow
@@ -18,7 +55,7 @@ Other dependencies:
 
 Run the workflow from the `Compute` tab on the PW platform.
 
-# Worker image
+# Cloud worker image (NOT relevant for SLURM clusters)
 
 I started with a default Ubuntu20 Mimimal image and
 I installed Docker and Singularity and converted the
@@ -118,7 +155,11 @@ is no need to run as --fakeroot.
 to use the Dockerfile's ENTRYPOINT with `exec`.  However,
 using `singularity run` breaks on gclusters.
 
-## Worker-installed (preloaded) Parsl-PW Conda environment
+## Cloud worker-installed (preloaded) Parsl-PW Conda environment
+
+(This applies only to cloud workers and not SLURM clusters.
+On a SLURM cluster, I install my Conda environment in
+a shared space, e.g. /scratch or /contrib.)
 
 The `parsl-pw` Conda environment is the default environment
 for executing PW platform parallelization via Parsl.  While
@@ -136,3 +177,13 @@ Then untar the file to /var/lib/pworks/.miniconda3. Update the
 conda paths from /pw/.miniconda3 to /var/lib/pworks/.miniconda3
 **Do not use /tmp/.miniconda3 to preload the Conda env files because
 /tmp is not persistent on cloud worker images.**
+
+# Future work
+
+1. The current container is large and it can be trimmed to run faster.
+2. Workflow file staging to and out of workers can be streamlined.
+3. Run workflow from the GUI form.
+4. Configure Singularity container entry point (i.e. get `singualrity run` to work)
+5. Test preinstalled conda on cloud worker images
+6. Build SLURM cluster compatible PW GUI launcher
+7. Remove --fakeroot from cloud worker Singularity wrapper for speed up
