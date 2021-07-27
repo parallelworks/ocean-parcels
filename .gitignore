@@ -2,6 +2,7 @@ runinfo
 __pycache__
 .ipynb_checkpoints
 test_ocean_parcels*
+.nfs*
 *~
 *.png
 parsllogs
