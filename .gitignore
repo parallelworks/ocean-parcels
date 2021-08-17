@@ -9,3 +9,8 @@ parsllogs
 *.std*
 test-outputs
 
+# OceanParcels temp data dir
+out-*
+
+# Any potentially large input or output files
+*.nc
